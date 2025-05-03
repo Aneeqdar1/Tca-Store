@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCA STORE</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background-color: #0b0c10;
+            color: #fff;
+        }
+        header {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            color: #f39c12;
+            margin: 0;
+        }
+        header h2 {
+            color: #f1c40f;
+            margin: 5px 0 0;
+        }
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .poster img {
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000;
+        }
+        .description {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .price {
+            color: #00ffc3;
+            font-size: 22px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .form-section {
+            margin-top: 40px;
+            background-color: #141414;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #222;
+        }
+        .form-section h3 {
+            color: #f39c12;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .whatsapp-btn {
+            display: block;
+            margin: 20px auto;
+            background-color: #25d366;
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            width: fit-content;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TCA STORE</h1>
+        <h2>The Chronicles of Asal</h2>
+    </header>
+    <div class="content">
+        <div class="poster">
+            <img src="poster.jpg" alt="The Chronicles of Asal Poster">
+        </div>
+        <div class="description">
+            <p><strong>The Chronicles of Asal — Book 1: The Locket of Flame</strong></p>
+            <p>Asal, a 15-year-old in modern-day Tokyo discovers a mystical locket binding him to an ancient red-black dragon, Ighis. He embarks on an adventure in Draconia—with his friends James, Logan, Lily, and Freya, joining warrior Zara to battle the dark forces of Shadowcrown and its leader Lysander. An epic battle of destiny awaits.</p>
+        </div>
+        <div class="price">Price: ₹450</div>
+        <div class="form-section">
+            <h3>Pre-Order Form</h3>
+            <form id="orderForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" required>
+                
+                <label for="address">Shipping Address:</label>
+    <label><input type="checkbox" id="cod" required> I want to pay via Cash on Delivery</label>
+                <textarea id="address" required></textarea>
+
+                <a class="whatsapp-btn" id="whatsappLink" href="#" target="_blank">Click here to confirm on WhatsApp</a>
+            </form>
+        </div>
+    </div>
+    <footer>
+        © 2028 TCA STORE | Designed for fans of The Chronicles of Asal
+    </footer>
+
+    <script>
+        document.getElementById("whatsappLink").addEventListener("click", function(event) {
+            const name = document.getElementById("name").value.trim();
+            const address = document.getElementById("address").value.trim();
+            if (!name || !address) {
+                alert("Please fill in your name and address before proceeding.");
+                event.preventDefault();
+                return;
+            }
+            const cod = document.getElementById("cod").checked;
+            const message = `Hi, I am interested in The Chronicles of Asal — Book 1. Please provide more details.\n\nName: ${name}\nAddress: ${address}\nPayment Method: ${cod ? "Cash on Delivery" : "Not specified"}`;
+            const encodedMessage = encodeURIComponent(message);
+            const phoneNumber = "919797109925";
+            this.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        });
+    </script>
+</body>
+</html>
